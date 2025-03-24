@@ -1,15 +1,10 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import jwt from "jsonwebtoken";
 
-const app = new Hono()
+const payload : jwt.JwtPayload = {
+  iss : "https://msvarunkumar504@gmail.com",
+  sub : "Varunkumar8055",
+};
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const secretkey = "HelloWorld";
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+const token = jwt.sign(payload, secretkey);
