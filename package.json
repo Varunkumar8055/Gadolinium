@@ -2,7 +2,7 @@
   "name": "Gadolinium",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx src/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",

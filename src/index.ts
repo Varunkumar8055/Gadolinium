@@ -7,4 +7,18 @@ const payload : jwt.JwtPayload = {
 
 const secretkey = "HelloWorld";
 
-const token = jwt.sign(payload, secretkey);
+const token = jwt.sign(payload, secretkey, {
+  algorithm: "HS256",
+  expiresIn: "1h",
+}
+);
+console.log(token);
+
+try {
+  const decodedplayload = jwt.verify(token, secretkey);
+  console.log("decoded code", decodedplayload);
+}
+catch (error) {
+  console.log("error", error);
+}
+
